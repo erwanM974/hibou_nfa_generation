@@ -144,7 +144,7 @@ by either *strict* or *par*
 
 This yields the following interaction:
 
-<img src="./README_images/doors_with_strict_and_par_repr.png">
+<img src="./README_images/strictpar/doors_with_strict_and_par_repr.png">
 
 This then enables us to compare our method w.r.t. this compositional method in the table below.
 
@@ -157,9 +157,9 @@ This then enables us to compare our method w.r.t. this compositional method in t
 
 Drawing the NFA generated using both methods for the example with 4 doors with strict and par yields the following :
 
-| NFA via interaction exploration (our method)   | NFA via cutting into basic SDs and composition          |
-|------------------------------------------------|---------------------------------------------------------|
-| <img src="./README_images/doors_orig_nfa.png"> | <img src="./README_images/doors_compositional_nfa.png"> |
+| NFA via interaction exploration (our method)       | NFA via cutting into basic SDs and composition      |
+|----------------------------------------------------|-----------------------------------------------------|
+| <img src="./README_images/strictpar/orig_nfa.png"> | <img src="./README_images/strictpar/compo_nfa.png"> |
 
 
 
