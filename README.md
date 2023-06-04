@@ -61,9 +61,9 @@ This NFA turns out to be the minimal NFA which can express this language.
 As expected, if we determinize it and then minimize the resulting DFA we get a FA with more states 
 (here 14 states instead of 8). This DFA is given on the right column below.
 
-| Exploration                                  | NFA                                                  | min DFA                                             |
-|----------------------------------------------|------------------------------------------------------|-----------------------------------------------------|
-| <img src="./README_images/secret_explo.svg"> | <img src="./README_images/secret_code_orig_nfa.png"> | <img src="./README_images/secret_code_min_dfa.png"> |
+| Exploration                                  | NFA                                                  | min DFA                                              |
+|----------------------------------------------|------------------------------------------------------|------------------------------------------------------|
+| <img src="./README_images/secret_explo.svg"> | <img src="./README_images/secret_code_orig_nfa.png"> | <img src="./README_images/secret_code_mini_dfa.png"> |
 
 
 
@@ -86,6 +86,10 @@ in the form of an interaction diagram.
 ### Results 
 
 The following table summarizes the results for our examples with 1, 4 and 8 doors.
+In the column titles of the table below :
+- #Q refers to a number of states
+- KW refers to the Kameda-Weiner algorithm
+- B refers to Brzozowski's algorithm
 
 | Example      | #Q original NFA | time gen            | #Q min NFA | time KW     | #Q min DFA | time det min B      |
 |--------------|-----------------|---------------------|------------|-------------|------------|---------------------|
