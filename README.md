@@ -76,11 +76,11 @@ The third row gives a more complex example.
 The third column of the table below provides the behavioral specification of the system thus constructed
 in the form of an interaction diagram.
 
-| Example      | structure                                    | diagram                                          |
-|--------------|----------------------------------------------|--------------------------------------------------|
-| with 1 door  | <img src="./README_images/struct_1door.svg"> | <img src="./README_images/secret_code_repr.png"> |
-| with 4 doors | <img src="./README_images/struct_doors.svg"> | <img src="./README_images/doors_repr.png">       |
-| with 8 doors | <img src="./README_images/struct_maze.svg">  | SEE folder README_images                         |
+| Example      | structure                                    | diagram                                          | NFA                                                  |
+|--------------|----------------------------------------------|--------------------------------------------------|------------------------------------------------------|
+| with 1 door  | <img src="./README_images/struct_1door.svg"> | <img src="./README_images/secret_code_repr.png"> | <img src="./README_images/secret_code_orig_nfa.png"> |
+| with 4 doors | <img src="./README_images/struct_doors.svg"> | <img src="./README_images/doors_repr.png">       | <img src="./README_images/doors_orig_nfa.png">       |
+| with 8 doors | <img src="./README_images/struct_maze.svg">  | SEE folder README_images                         | TOO BIG                                              |
 
 
 ### Results 
@@ -127,6 +127,15 @@ with UML-SD, given that there is no NFA operator equivalent to weak sequencing, 
 is constrained within basic SD blocks. Hence weak sequencing cannot be used to structure more complex behavior (i.e. we can't nest complex operators such as *loop*, *par*, *alt* underneath a *seq*)
 
 
+As a first element of comparison between both methods, below is represented how each
+generated NFA looks for the example with a single door.
+
+| NFA via interaction exploration (our method)         | NFA via cutting into basic SDs and composition                |
+|------------------------------------------------------|---------------------------------------------------------------|
+| <img src="./README_images/secret_code_orig_nfa.png"> | <img src="./README_images/secret_code_compositional_nfa.png"> |
+
+
+
 In order to be able to use this compositional method for our example with 4 doors, 
 we need to replace occurrences of *seq* 
 (at positions in which the sub-interaction contains operators other than *strict* and *seq* )
@@ -135,14 +144,23 @@ by either *strict* or *par*
 
 This yields the following interaction:
 
-<img src="./README_images/doors_with_strict_and_par.png">
+<img src="./README_images/doors_with_strict_and_par_repr.png">
 
-This then enables us to compare our method w.r.t. this compositional method:
+This then enables us to compare our method w.r.t. this compositional method in the table below.
+
 
 | Example                     | #Q our NFA | time gen            | #Q compositional NFA | time gen            | #Q min DFA | time min DFA after compo | 
 |-----------------------------|------------|---------------------|----------------------|---------------------|------------|--------------------------|
-| with 1 door                 | 8          | ~230 micro seconds  | 25                   | ~470 micro seconds  | 14         | ~300 micro seconds       |
-| with 4 doors strict and par | 97         | ~7700 micro seconds | 625                  | ~7400 micro seconds | 298        | ~15700 micro seconds     |
+| with 1 door                 | 8          | ~230 micro seconds  | 13                   | ~370 micro seconds  | 14         | ~120 micro seconds       |
+| with 4 doors strict and par | 97         | ~3500 micro seconds | 223                  | ~7300 micro seconds | 298        | ~8100 micro seconds      |
+
+
+Drawing the NFA generated using both methods for the example with 4 doors with strict and par yields the following :
+
+| NFA via interaction exploration (our method)   | NFA via cutting into basic SDs and composition          |
+|------------------------------------------------|---------------------------------------------------------|
+| <img src="./README_images/doors_orig_nfa.png"> | <img src="./README_images/doors_compositional_nfa.png"> |
+
 
 
 
