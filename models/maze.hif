@@ -1,0 +1,184 @@
+seq(
+
+			loopS(
+				alt(
+					A -> door2,
+					B -> door2
+				)
+			),
+			B-> door2,
+			A-> door2,
+			B-> door2,
+			alt(
+				A -> door2,
+				B -> door2
+			),
+			alt(
+				A -> door2,
+				B -> door2
+			),
+			alt(
+				A -> door2,
+				B -> door2
+			),
+			door2 -- unlock -> door3,
+
+			loopS(
+				alt(
+					A -> door1,
+					B -> door1
+				)
+			),
+			A-> door1,
+			B-> door1,
+			B-> door1,
+			alt(
+				A -> door1,
+				B -> door1
+			),
+			alt(
+				A -> door1,
+				B -> door1
+			),
+			alt(
+				A -> door1,
+				B -> door1
+			),
+			door1 -- unlock -> (door4,door5),
+
+			loopS(
+				alt(
+					A -> door3,
+					B -> door3
+				)
+			),
+			B-> door3,
+			A-> door3,
+			A-> door3,
+			alt(
+				A -> door3,
+				B -> door3
+			),
+			alt(
+				A -> door3,
+				B -> door3
+			),
+			alt(
+				A -> door3,
+				B -> door3
+			),
+			door3 -- unlock -> door6,
+
+			loopS(
+				alt(
+					A -> door4,
+					B -> door4
+				)
+			),
+			B-> door4,
+			B-> door4,
+			A-> door4,
+			alt(
+				A -> door4,
+				B -> door4
+			),
+			alt(
+				A -> door4,
+				B -> door4
+			),
+			alt(
+				A -> door4,
+				B -> door4
+			),
+			door4 -- unlock -> door6,
+
+			loopS(
+				alt(
+					A -> door5,
+					B -> door5
+				)
+			),
+			A-> door5,
+			B-> door5,
+			A-> door5,
+			alt(
+				A -> door5,
+				B -> door5
+			),
+			alt(
+				A -> door5,
+				B -> door5
+			),
+			alt(
+				A -> door5,
+				B -> door5
+			),
+			door5 -- unlock -> door7,
+
+	loopS(
+		alt(
+			A -> door6,
+			B -> door6
+		)
+	),
+	B-> door6,
+	A-> door6,
+	A-> door6,
+	alt(
+		A -> door6,
+		B -> door6
+	),
+	alt(
+		A -> door6,
+		B -> door6
+	),
+	alt(
+		A -> door6,
+		B -> door6
+	),
+	door6 -- unlock -> door8,
+	loopS(
+		alt(
+			A -> door7,
+			B -> door7
+		)
+	),
+	B-> door7,
+	B-> door7,
+	A-> door7,
+	alt(
+		A -> door7,
+		B -> door7
+	),
+	alt(
+		A -> door7,
+		B -> door7
+	),
+	alt(
+		A -> door7,
+		B -> door7
+	),
+	door7 -- unlock -> door8,
+	loopS(
+		alt(
+			A -> door8,
+			B -> door8
+		)
+	),
+	A-> door8,
+	A-> door8,
+	A-> door8,
+	alt(
+		A -> door8,
+		B -> door8
+	),
+	alt(
+		A -> door8,
+		B -> door8
+	),
+	alt(
+		A -> door8,
+		B -> door8
+	),
+	door8 -- unlock ->|
+)

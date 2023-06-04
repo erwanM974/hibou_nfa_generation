@@ -1,0 +1,104 @@
+strict(
+	loopS(
+		alt(
+			A -> door1,
+			B -> door1
+		)
+	),
+	seq(
+		A-> door1,
+		A-> door1,
+		B-> door1
+	),
+	alt(
+		A -> door1,
+		B -> door1
+	),
+	alt(
+		A -> door1,
+		B -> door1
+	),
+	alt(
+		A -> door1,
+		B -> door1
+	),
+	door1 -- unlock -> (door2,door3),
+	par(
+		strict(
+			loopS(
+				alt(
+					A -> door2,
+					B -> door2
+				)
+			),
+			seq(
+				B-> door2,
+				A-> door2,
+				B-> door2
+			),
+			alt(
+				A -> door2,
+				B -> door2
+			),
+			alt(
+				A -> door2,
+				B -> door2
+			),
+			alt(
+				A -> door2,
+				B -> door2
+			),
+			door2 -- unlock -> door4
+		),
+		strict(
+			loopS(
+				alt(
+					A -> door3,
+					B -> door3
+				)
+			),
+			seq(
+				A-> door3,
+				B-> door3,
+				B-> door3
+			),
+			alt(
+				A -> door3,
+				B -> door3
+			),
+			alt(
+				A -> door3,
+				B -> door3
+			),
+			alt(
+				A -> door3,
+				B -> door3
+			),
+			door3 -- unlock -> door4
+		)
+	),
+	loopS(
+		alt(
+			A -> door4,
+			B -> door4
+		)
+	),
+	seq(
+		B-> door4,
+		A-> door4,
+		A-> door4
+	),
+	alt(
+		A -> door4,
+		B -> door4
+	),
+	alt(
+		A -> door4,
+		B -> door4
+	),
+	alt(
+		A -> door4,
+		B -> door4
+	),
+	door4 -- unlock ->|
+)
