@@ -146,6 +146,8 @@ This yields the following interaction:
 
 <img src="./README_images/strictpar/doors_with_strict_and_par_repr.png">
 
+We can do the same thing with the example with 8 doors.
+
 This then enables us to compare our method w.r.t. this compositional method in the table below.
 
 
@@ -153,6 +155,7 @@ This then enables us to compare our method w.r.t. this compositional method in t
 |-----------------------------|------------|---------------------|----------------------|---------------------|------------|--------------------------|
 | with 1 door                 | 8          | ~230 micro seconds  | 13                   | ~370 micro seconds  | 14         | ~120 micro seconds       |
 | with 4 doors strict and par | 97         | ~3500 micro seconds | 223                  | ~7300 micro seconds | 298        | ~8100 micro seconds      |
+| with 8 doors strict and par | 1624       | ~0.38 seconds       | 5904                 | ~0.15 seconds       | 9374       | ~2.3 seconds             |
 
 
 Drawing the NFA generated using both methods for the example with 4 doors with strict and par yields the following :
@@ -167,13 +170,13 @@ Drawing the NFA generated using both methods for the example with 4 doors with s
 
 ## Running the experiments
 
-With the HIBOU tool executable in the repository you can use the following command:
+With the HIBOU tool executable in the repository you can use the following command :
 
 ```
 ./hibou_label.exe nfa_experiment models/secret_code.hsf models/secret_code.hif -n 100 -k 5
 ```
 
-Or more generally
+Or more generally :
 
 ```
 ./hibou_label.exe nfa_experiment models/x.hsf models/x.hif -n y -k z
@@ -185,3 +188,7 @@ Where:
 The median value of those tries times is used as the return value for the required time.
 - `z` is an arbitrary limit on states number to give up using Kameda Weiner for NFA minimization (In practice Kameda Weiner is not really usable for NFA which minimized version has more than 15-20 states)
 
+To draw the interactions and the automata you may run the following command :
+```
+./hibou_label.exe glosem models/x.hsf models/x.hif
+```
